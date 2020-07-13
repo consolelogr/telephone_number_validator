@@ -1,0 +1,67 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telephone Validator</title></head><body>
+<style>
+html,body{margin: 0; padding: 0;
+    background: linear-gradient(-140deg, #223, #222)}
+button{font-size: 1rem;color: #222;border:0;background: orange;padding: 1rem;}
+button:hover{transform: scale(1.05)}
+input{border: 0.4rem solid #7779;}
+#result{ color: #222;font-size: 7rem;}
+.aligner{display: flex; align-items: center;justify-content:center;min-height: 100vh;text-align: center;}
+.centerbox{background: #fffd; max-width: 50%;min-height: 50vh;flex:1; box-shadow: 0 0 0 0.5rem #eaeaea11, 0 0 0 1rem #efefef11, 
+    0 0 0 1.5rem #eaeae711,0 0 0 2rem #efefef04 ;
+}
+hr{
+    
+    width: 70%;
+    height: 0.2rem;
+    background: linear-gradient(90deg, #8880,  #a777, #8880);
+    border: 0;
+}
+</style>
+<div class="aligner">
+    <div class="centerbox">
+        <br>
+        ENTER TELEPHONE NUMBER<br>
+        <hr>
+        <br><br>
+        
+        <input type="text" placeholder="555-555-5555">
+        <button type="submit">GO</button>
+        <br><br>
+        <div id="result" >	&#10003;</div>
+    </div>         
+</div>
+
+<script>
+
+
+function telephoneCheck(str) {
+
+ 
+var reggie = /[a-z]+/g;
+matsi = str.match(reggie); 
+
+for(i=0; i<matsi.length; i++){
+  document.getElementById("result").innerHTML += matsi[i];
+  if(i<matsi.length-1){
+    document.getElementById("result").innerHTML += ", ";
+  }
+}
+
+console.log(matsi, matsi.length);
+}
+
+
+telephoneCheck("");
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
