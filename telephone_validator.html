@@ -20,6 +20,8 @@ hr{
     border: 0;
 }
 </style>
+
+
 <div class="aligner">
     <div class="centerbox">
         <br>
@@ -27,41 +29,37 @@ hr{
         <hr>
         <br><br>
         
-        <input type="text" placeholder="555-555-5555">
-        <button type="submit">GO</button>
+        <input type="text" id="inputId" placeholder="555-555-5555">
+        <button type="submit"  onclick="buttonclick()"> GO </button>
         <br><br>
-        <div id="result" >	&#10003;</div>
+        <div id="result" >	</div>
     </div>         
 </div>
 
 <script>
+function buttonclick(){
+var inputValue = document.getElementById("inputId").value;
+
+var reggie = /^\d{3}\-\d{3}\-\d{4}$ | ^\(\d{3}\)\d{3}\-\d{4}$  | ^\(\d{3}\s\d{3}\-\d{4}$  | ^\d{3}\s\d{3}\s\d{4}$ | ^1\s\d{3}\s\d{3}\s\d{4}$           /;
 
 
-function telephoneCheck(str) {
+if(inputValue.match(reggie)){
+    document.getElementById("result").innerHTML = "&#10003";
+}  
 
- 
-var reggie = /[a-z]+/g;
-matsi = str.match(reggie); 
-
-for(i=0; i<matsi.length; i++){
-  document.getElementById("result").innerHTML += matsi[i];
-  if(i<matsi.length-1){
-    document.getElementById("result").innerHTML += ", ";
-  }
+else{
+    document.getElementById("result").innerHTML = "X";
 }
 
-console.log(matsi, matsi.length);
 }
-
-
-telephoneCheck("");
-
-
-
-
-
-
 </script>
 </body>
 </html>
-
+<!-- regexify these 
+a)   555-555-5555
+b)   (555)555-5555
+c)   (555) 555-5555
+d)   555 555 5555
+e)   555 555 5555
+f)   1 555 555 5555
+-->
